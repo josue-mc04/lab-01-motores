@@ -35,6 +35,19 @@ public class playermove : MonoBehaviour{
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position,new Vector2(Horizontal,Vertical),Distance);
 
         Debug.DrawRay(transform.position, new Vector2(Horizontal, Vertical).normalized*hit2D.distance,Color.red);
+        if(hit2D.collider != null)
+        {
+            print( hit2D.collider.gameObject.name);
+            print(hit2D.collider.gameObject.transform.position);
+            print(hit2D.collider.gameObject.tag);
+            if (hit2D.collider.tag=="color") {
+                print(hit2D.collider.gameObject.GetComponent<SpriteRenderer>().color);
+            }
+            if (hit2D.collider.tag == "archer" || hit2D.collider.tag == "monk" || hit2D.collider.tag == "lancer")
+            {
+                print(hit2D.collider.gameObject.GetComponent<SpriteRenderer>().sprite);
+            }
+        }
 
         animator.SetInteger("id", IDAnimation);
 
