@@ -58,6 +58,9 @@ public class playermove : MonoBehaviour{
                 IDAnimation = 3;
                 sprite.sprite = spriteRenderer.sprite;
             }
+             if (collision.CompareTag("color")) {
+                sprite.color = spriteRenderer.color;
+            }
         }
        
     }
